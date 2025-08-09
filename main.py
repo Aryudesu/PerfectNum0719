@@ -65,10 +65,12 @@ def calc_primes(N):
     return primes
 
 def is_mersenne_prime(p:int):
+    if p == 2:
+        return True
     m = 2**p-1
     S = 4
     for _ in range(p-2):
-        S = (S*S-2)%m
+        S = (pow(S, 2, m) - 2) % m
     return S == 0
 
 
